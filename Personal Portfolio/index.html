@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Additional CSS for project cards alignment */
+        .card-body {
+            position: relative;
+        }
+        .card-body .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px; /* Set a fixed height for the image wrapper */
+        }
+        .card-body .img-wrapper img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card-body .img-wrapper .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card-body:hover .overlay {
+            opacity: 1;
+        }
+        .card-body:hover img {
+            transform: scale(1.1);
+        }
+        .overlay-infos {
+            text-align: center;
+        }
+        .overlay-infos a {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 5px;
+        }
+        .socials {
+            margin: 20px 0;
+            text-align: center; /* Center align the social icons */
+        }
+        .social-item {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #fff;
+        }
+
+        /* Change the progress bar color to red */
+        .progress-bar.bg-info {
+            background-color: #ff0000; /* Red color */
+        }
+
+        /* Blue buttons */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Light blue cards */
+        /* Additional CSS for project cards highlighting */
+        .custom-card.card {
+            background-color: #fff; /* White background color */
+            border: 1px solid #ced4da; /* Border color */
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for box-shadow */
+            position: relative; /* Ensure that caption is always visible */
+        }
+        .custom-card.card .card-body h5 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* Glow effect on hover */
+        .custom-card.card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a box-shadow effect on hover */
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" data-spy="affix" data-offset-top="0">
+        <div class="container">
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>          
+    </nav>
+    <!-- End of page navigation -->
+
+    <!-- Page Header -->
+    <header class="header" id="home">
+        <div class="container">
+            <div class="infos">
+                <h6 class="subtitle">Hey, I'm</h6>
+                <h6 class="title">Madhagari Abhishek</h6>
+                <p>Web Designer</p>
+
+                <div class="buttons pt-3">
+                    <button class="btn btn-primary rounded">DOWNLOAD CV</button>
+                </div>      
+            </div>              
+            <div class="img-holder">
+                <img src="assets/img/boy.png" alt="">
+            </div>      
+        </div>  
+    </header>
+    <!-- End of page header -->
+
+    <!-- About section -->
+    <section id="about" class="section mt-3">
+        <div class="container mt-5">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3">
+                    <img src="assets/img/me.png" alt="" class="img-thumbnail mb-4">
+                </div>
+                <div class="pl-md-4 col-md-9">
+                    <h6 class="title">Madhagari Abhishek</h6>
+                    <p class="subtitle">Web Designer</p>
+                    <p>Highly motivated and passionate fresher web developer with a strong foundation in HTML, CSS, and JavaScript. Eager to learn and contribute to building innovative and user-centric web experiences. Currently exploring React to further enhance my skillset.</p>
+                    <button class="btn btn-primary rounded mt-3">DOWNLOAD CV</button>                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service section -->
+    <section id="skills" class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Service</h6>
+            <h6>My Skills</h6>
+            <p>Building Blocks of My Expertise</p>
+
+            <div class="row">
+                <!-- Python Skill -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="assets/img/Python.png" alt="Python">
+                            </div>
+                            <h5>Python</h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- HTML CSS Skill -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="assets/img/htmlcss.png" alt="HTML CSS">
+                            </div>
+                            <h5>HTML CSS</h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- JavaScript Skill -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="assets/img/js.png" alt="JavaScript">
+                            </div>
+                            <h5>JavaScript</h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bootstrap Skill -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="assets/img/bootstrap.png" alt="Bootstrap">
+                            </div>
+                            <h5>Bootstrap</h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Service section -->
+
+    <!-- Project section -->
+    <section id="projects" class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Portfolio</h6>
+            <h6>My Projects</h6>
+            <p>Turning Dreams into Reality: A Showcase of Completed Projects</p>
+
+            <div class="row">
+                <!-- Netflix Clone -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="https://hindi.cdn.zeenews.com/hindi/sites/default/files/styles/zm_700x400/public/2022/07/20/1230339-netflix-thumbnail.jpg?itok=ohIyXPQ_" alt="Netflix Clone">
+                                <div class="overlay"></div>
+                            </div>
+                            <h5>Netflix Clone</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Weather App -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="assets/img/weather.png" alt="Weather App">
+                                <div class="overlay"></div>
+                            </div>
+                            <h5>Weather App</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Instagram Clone -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <div class="img-wrapper">
+                                <img src="https://bl-i.thgim.com/public/incoming/l88cbi/article66144797.ece/alternates/FREE_1200/2017-08-31T061626Z_1910772080_RC1EA262AFC0_RTRMADP_3_INSTAGRAM-CYBER.JPG" alt="Instagram Clone">
+                                <div class="overlay"></div>
+                            </div>
+                            <h5>Instagram Clone</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Project section -->
+
+    <!-- Contact section -->
+    <section id="contact" class="section bg-light">
+        <div class="container text-center">
+            <h6 class="subtitle">Contact</h6>
+            <h6>Get In Touch</h6>
+            <p class="mb-5 pb-4">Contact Us.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary rounded" type="submit">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Contact section -->
+
+    <script src="assets/js/script.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00e1ff;
+      --primary-dark: #00a8bf;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f8f9fa;
+      --gray: #2d2d2d;
+      --success: #28a745;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      line-height: 1.7;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+      padding: 6rem 0 4rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 225, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(0, 225, 255, 0.1);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .education-item, .certification-item, .training-item, .hackathon-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .education-item:hover, .certification-item:hover, .training-item:hover, .hackathon-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 225, 255, 0.1);
+    }
+
+    .education-item h3, .certification-item h3, .training-item h3, .hackathon-item h3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .education-item span, .certification-item span, .training-item span, .hackathon-item span {
+      font-size: 0.9rem;
+      color: var(--primary);
+      background: rgba(0, 225, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 225, 255, 0.1);
+    }
+
+    .project-image {
+      height: 200px;
+      background: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-date {
+      font-size: 0.9rem;
+      color: var(--primary);
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill {
+      background: rgba(0, 225, 255, 0.1);
+      color: var(--primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .contact-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 225, 255, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .contact-icons a:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--primary);
+      color: var(--dark);
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Madhagari Abhishek</h1>
+      <p>Cybersecurity Student | Front-end Developer</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div>
+          <p>I'm a Front-End Developer and a B.Tech student at Malla Reddy University, specializing in Computer Science with a focus on Cybersecurity. I'm passionate about building responsive, user-friendly interfaces that combine design with functionality.</p>
+          <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">React</span>
+            <span class="skill">Python</span>
+            <span class="skill">Leadership</span>
+            <span class="skill">AI/ML</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>B.Tech in Computer Science & Engineering (Cybersecurity) <span>2022-2026</span></h3>
+        <p>Malla Reddy University</p>
+        <p>CGPA: 8.27 | Relevant Coursework: IOT Security, Cryptography, Agile Software Development, Penn Testing, Data Structures</p>
+      </div>
+      <div class="education-item">
+        <h3>Intermediate (MPC) <span>2020-2022</span></h3>
+        <p>Loyola Academy Junior College</p>
+        <p>CGPA: 8.18 | Focused on Mathematics, Physics, and Chemistry</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="trainings">
+    <div class="container">
+      <h2>Trainings</h2>
+      <div class="training-item">
+        <h3>HR Management <span>Oxford Home Study</span></h3>
+        <p>Comprehensive training in human resource management principles, practices, and strategies.</p>
+      </div>
+      <div class="training-item">
+        <h3>Diploma in Educational Psychology <span>Alison</span></h3>
+        <p>In-depth study of psychological principles applied to educational settings and learning processes.</p>
+      </div>
+      <div class="training-item">
+        <h3>Full Stack Web Development (MERN) <span>GeeksforGeeks</span></h3>
+        <p>Intensive training in MongoDB, Express.js, React, and Node.js for full-stack web application development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hackathons">
+    <div class="container">
+      <h2>Workshops & Hackathons</h2>
+      <div class="hackathon-item">
+        <h3>Ethical Hacking Workshop <span>IIT Hyderabad</span></h3>
+        <p>Participated in an intensive workshop covering ethical hacking techniques, penetration testing methodologies, and cybersecurity best practices.</p>
+      </div>
+      <div class="hackathon-item">
+        <h3>Anvesha 2024 Coding Competition <span>Malla Reddy University</span></h3>
+        <p>Competed in the university-level coding challenge, solving complex algorithmic problems within time constraints.</p>
+      </div>
+      <div class="hackathon-item">
+        <h3>Great AppSec Hackathon <span>DSCI</span></h3>
+        <p>Participated in a national-level application security hackathon focused on identifying and resolving security vulnerabilities in web applications.</p>
+      </div>
+      <div class="hackathon-item">
+        <h3>Flipkart GRID Hackathon <span>Flipkart</span></h3>
+        <p>Competed in Flipkart's annual hackathon, working on innovative solutions for e-commerce challenges with a focus on security and scalability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-shield-alt" style="font-size: 3rem;"></i>
+          </div>
+          
+          <div class="project-content">
+            <h3>Secura</h3>
+            <p>A comprehensive protection application built with Flask and MongoDB that allows users to register complaints, send live location alerts to emergency contacts, and verify potentially fake news or malicious URLs through an integrated verification system.</p>
+            <span class="project-date">Completed: October 2024</span>
+            <div class="skills">
+              <span class="skill">Python</span>
+              <span class="skill">Flask</span>
+              <span class="skill">MongoDB</span>
+              <span class="skill">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-utensils" style="font-size: 3rem;"></i>
+          </div>
+          <div class="project-content">
+            <h3>Restaurant Management System</h3>
+            <p>A front-end restaurant management application built with React for the frontend and Node.js for the backend. Features include menu management, order tracking, staff scheduling, and customer relationship management with analytics dashboard.</p>
+            <span class="project-date">Completed: May 2025</span>
+            <div class="skills">
+              <span class="skill">React</span>
+              <span class="skill">Git</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-graduation-cap" style="font-size: 3rem;"></i>
+          </div>
+          <div class="project-content">
+            <h3>Trackademic</h3>
+            <p>A web-based academic management platform that helps students track their academic progress, attendance records, and includes a live bus tracking feature for campus transportation. The system provides analytics and predictive modeling for academic performance.</p>
+            <span class="project-date">Completed: February 2025</span>
+            <div class="skills">
+              <span class="skill">React</span>
+              <span class="skill">Mail.js</span>
+              <span class="skill">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="certification-item">
+        <h3>IT, Computer Fundamentals, MS Office, Internet <span>Govt of Telangana</span></h3>
+        <p>Certified training on basic computer operations, MS Office tools, and internet usage.</p>
+      </div>
+      <div class="certification-item">
+        <h3>Young Professionals <span>TCS iON</span></h3>
+        <p>Certified training in soft skills, including communication, non-verbal cues, workplace etiquette, and professional behavior.</p>
+      </div>
+      <div class="certification-item">
+        <h3>Python Essentials 1 & 2 <span>Cisco Networking Academy</span></h3>
+        <p>Comprehensive certification in Python, covering syntax, functions, OOP, and data structures.</p>
+      </div>
+      <div class="certification-item">
+        <h3>AI Fundamentals <span>IBM</span></h3>
+        <p>Foundation-level course on artificial intelligence, machine learning, and their real-world applications.</p>
+      </div>
+      <div class="certification-item">
+        <h3>Web Development Fundamentals <span>IBM</span></h3>
+        <p>Training in front-end and back-end web development using modern frameworks and best practices.</p>
+      </div>
+      <div class="certification-item">
+        <h3>HR Analytics <span>University of California</span></h3>
+        <p>Understanding data-driven decision-making in human resources using analytics tools and techniques.</p>
+      </div>
+      <div class="certification-item">
+        <h3>Project Management Fundamentals <span>IBM</span></h3>
+        <p>Introduction to key project management principles, lifecycle, and effective project planning strategies.</p>
+      </div>
+      <div class="certification-item">
+        <h3>Effective Leadership <span>HP Life</span></h3>
+        <p>Skills and strategies to lead teams, communicate vision, and manage responsibilities effectively.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Get In Touch</h2>
+        <p>I'm currently looking for internship opportunities in cybersecurity and software development. If you have any questions or just want to say hi, feel free to reach out!</p>
+        <div class="contact-icons">
+          <a href="mailto:ahishekmadhagari1407@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/madhagari-abhishek-a63aa9279/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Madhagari-Abhishek" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

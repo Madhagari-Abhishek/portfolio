@@ -45,6 +45,18 @@
       padding: 6rem 0 4rem;
       text-align: center;
       border-bottom: 1px solid rgba(0, 225, 255, 0.1);
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin: 0 auto 1.5rem;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
     }
 
     header h1 {
@@ -128,6 +140,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .education-item span, .certification-item span, .training-item span, .hackathon-item span {
@@ -136,6 +150,7 @@
       background: rgba(0, 225, 255, 0.1);
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
+      white-space: nowrap;
     }
 
     .projects-grid {
@@ -245,6 +260,25 @@
       box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
     }
 
+    .certification-images, .hackathon-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .certification-img, .hackathon-img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 225, 255, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .certification-img:hover, .hackathon-img:hover {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -257,12 +291,28 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+
+      .certification-img, .hackathon-img {
+        max-width: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .certification-img, .hackathon-img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
+      <img src="images/Screenshot 2025-06-17 201518.png" alt="Madhagari Abhishek" class="profile-pic">
       <h1>Madhagari Abhishek</h1>
       <p>Cybersecurity Student | Front-end Developer</p>
     </div>
@@ -334,18 +384,24 @@
       <div class="hackathon-item">
         <h3>Ethical Hacking Workshop <span>IIT Hyderabad</span></h3>
         <p>Participated in an intensive workshop covering ethical hacking techniques, penetration testing methodologies, and cybersecurity best practices.</p>
+        <div class="hackathon-images">
+          <img src="images/1000264951.jpg" alt="Ethical Hacking Workshop at IIT Hyderabad" class="hackathon-img">
+        </div>
       </div>
-      <div class="hackathon-item">
-        <h3>Anvesha 2024 Coding Competition <span>Malla Reddy University</span></h3>
-        <p>Competed in the university-level coding challenge, solving complex algorithmic problems within time constraints.</p>
-      </div>
+     
       <div class="hackathon-item">
         <h3>Great AppSec Hackathon <span>DSCI</span></h3>
         <p>Participated in a national-level application security hackathon focused on identifying and resolving security vulnerabilities in web applications.</p>
+        <div class="hackathon-images">
+          <img src="images/1000264954.jpg" alt="Great AppSec Hackathon" class="hackathon-img">
+        </div>
       </div>
       <div class="hackathon-item">
         <h3>Flipkart GRID Hackathon <span>Flipkart</span></h3>
         <p>Competed in Flipkart's annual hackathon, working on innovative solutions for e-commerce challenges with a focus on security and scalability.</p>
+        <div class="hackathon-images">
+          <img src="images/1000264953.jpg" alt="Flipkart GRID Hackathon" class="hackathon-img">
+        </div>
       </div>
     </div>
   </section>
@@ -410,34 +466,58 @@
       <div class="certification-item">
         <h3>IT, Computer Fundamentals, MS Office, Internet <span>Govt of Telangana</span></h3>
         <p>Certified training on basic computer operations, MS Office tools, and internet usage.</p>
+        <div class="certification-images">
+          <img src="images/1000264930.jpg" alt="Govt of Telangana Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>Young Professionals <span>TCS iON</span></h3>
         <p>Certified training in soft skills, including communication, non-verbal cues, workplace etiquette, and professional behavior.</p>
+        <div class="certification-images">
+          <img src="images/1000264933.jpg" alt="TCS iON Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>Python Essentials 1 & 2 <span>Cisco Networking Academy</span></h3>
         <p>Comprehensive certification in Python, covering syntax, functions, OOP, and data structures.</p>
+        <div class="certification-images">
+          <img src="images/1000264939.jpg" alt="Cisco Python Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>AI Fundamentals <span>IBM</span></h3>
         <p>Foundation-level course on artificial intelligence, machine learning, and their real-world applications.</p>
+        <div class="certification-images">
+          <img src="images/1000264942.jpg" alt="IBM AI Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>Web Development Fundamentals <span>IBM</span></h3>
         <p>Training in front-end and back-end web development using modern frameworks and best practices.</p>
+        <div class="certification-images">
+          <img src="images/1000264945.jpg" alt="IBM Web Dev Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>HR Analytics <span>University of California</span></h3>
         <p>Understanding data-driven decision-making in human resources using analytics tools and techniques.</p>
+        <div class="certification-images">
+          <img src="images/1000264950.jpg" alt="UC HR Analytics Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>Project Management Fundamentals <span>IBM</span></h3>
         <p>Introduction to key project management principles, lifecycle, and effective project planning strategies.</p>
+        <div class="certification-images">
+          <img src="images/1000264936.jpg" alt="IBM PM Certification" class="certification-img">
+        </div>
       </div>
       <div class="certification-item">
         <h3>Effective Leadership <span>HP Life</span></h3>
         <p>Skills and strategies to lead teams, communicate vision, and manage responsibilities effectively.</p>
+        <div class="certification-images">
+          <img src="images/1000264947.jpg" alt="HP Leadership Certification" class="certification-img">
+        </div>
       </div>
     </div>
   </section>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Madhagari Abhishek - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -28,6 +28,7 @@
       background-color: var(--dark);
       color: var(--light);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
     .mono {
@@ -35,7 +36,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -43,41 +44,110 @@
     header {
       background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
       padding: 6rem 0 4rem;
-      text-align: center;
       border-bottom: 1px solid rgba(0, 225, 255, 0.1);
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      width: 100%;
+    }
+
+    .profile-section {
+      flex: 0 0 auto;
       position: relative;
     }
 
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--primary);
-      margin: 0 auto 1.5rem;
-      display: block;
-      box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
+      border: 6px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 225, 255, 0.3);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 225, 255, 0.4);
+    }
+
+    .profile-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,225,255,0.2) 0%, rgba(0,225,255,0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      animation: pulse 3s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 0.8; }
+    }
+
+    .info-section {
+      flex: 1;
+      padding: 2rem 0;
     }
 
     header h1 {
-      font-size: 3.5rem;
+      font-size: 4.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       background: linear-gradient(90deg, var(--primary), var(--primary-dark));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: var(--primary);
     }
 
     header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 1.3rem;
       color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
     }
 
     section {
-      padding: 4rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid rgba(0, 225, 255, 0.1);
     }
 
@@ -86,9 +156,9 @@
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       color: var(--primary);
       position: relative;
       display: inline-block;
@@ -97,43 +167,45 @@
     h2::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -15px;
       left: 0;
-      width: 50px;
-      height: 3px;
+      width: 70px;
+      height: 4px;
       background: var(--primary);
     }
 
     h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 500;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       color: var(--light);
     }
 
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       color: rgba(255, 255, 255, 0.8);
     }
 
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 4rem;
       align-items: center;
     }
 
     .education-item, .certification-item, .training-item, .hackathon-item {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding: 2rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border-radius: 12px;
       transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 4px solid transparent;
     }
 
     .education-item:hover, .certification-item:hover, .training-item:hover, .hackathon-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 225, 255, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 225, 255, 0.15);
+      border-left: 4px solid var(--primary);
     }
 
     .education-item h3, .certification-item h3, .training-item h3, .hackathon-item h3 {
@@ -145,143 +217,326 @@
     }
 
     .education-item span, .certification-item span, .training-item span, .hackathon-item span {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--primary);
       background: rgba(0, 225, 255, 0.1);
-      padding: 0.3rem 0.8rem;
+      padding: 0.4rem 1rem;
       border-radius: 20px;
       white-space: nowrap;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
     }
 
     .project-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 225, 255, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 225, 255, 0.15);
     }
 
     .project-image {
-      height: 200px;
+      height: 220px;
       background: var(--gray);
       display: flex;
       align-items: center;
       justify-content: center;
       color: rgba(255, 255, 255, 0.3);
+      font-size: 4rem;
     }
 
     .project-content {
-      padding: 1.5rem;
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-content p {
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
     .project-date {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--primary);
       display: block;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
 
     .skill {
       background: rgba(0, 225, 255, 0.1);
       color: var(--primary);
-      padding: 0.4rem 0.8rem;
+      padding: 0.5rem 1rem;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .skill:hover {
+      background: rgba(0, 225, 255, 0.2);
+      transform: translateY(-3px);
     }
 
     .contact-content {
       text-align: center;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
     .contact-icons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 2rem;
+      margin-top: 2.5rem;
     }
 
     .contact-icons a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       background: rgba(0, 225, 255, 0.1);
       color: var(--primary);
       border-radius: 50%;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-icons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .contact-icons a:hover::before {
+      left: 100%;
     }
 
     .contact-icons a:hover {
       background: var(--primary);
       color: var(--dark);
-      transform: translateY(-3px);
+      transform: translateY(-5px) scale(1.1);
     }
 
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.8rem;
+      padding: 1rem 2.2rem;
       background: var(--primary);
       color: var(--dark);
       border-radius: 30px;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
-      margin-top: 1rem;
       transition: all 0.3s;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: var(--primary-dark);
+      transition: all 0.3s;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      width: 100%;
     }
 
     .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 225, 255, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 225, 255, 0.3);
     }
 
-    .certification-images, .hackathon-images {
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline::before {
+      background: var(--primary);
+    }
+
+    .btn-outline:hover {
+      color: var(--dark);
+    }
+
+    .certification-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: rgba(0, 225, 255, 0.1);
+      color: var(--primary);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1px solid rgba(0, 225, 255, 0.2);
+    }
+
+    .certification-link:hover {
+      background: rgba(0, 225, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 225, 255, 0.2);
+    }
+
+    .certification-link i {
+      font-size: 1.2rem;
+    }
+
+    .hackathon-images {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
-    .certification-img, .hackathon-img {
+    .hackathon-img {
       width: 100%;
-      max-width: 200px;
+      max-width: 220px;
       border-radius: 8px;
       border: 1px solid rgba(0, 225, 255, 0.2);
       transition: transform 0.3s;
+      object-fit: cover;
+      height: 160px;
     }
 
-    .certification-img:hover, .hackathon-img:hover {
-      transform: scale(1.05);
+    .hackathon-img:hover {
+      transform: scale(1.08);
     }
 
-    @media (max-width: 768px) {
+    .image-placeholder {
+      width: 100%;
+      max-width: 220px;
+      height: 160px;
+      background: var(--gray);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.5);
+      border: 1px dashed rgba(0, 225, 255, 0.3);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      background: rgba(0, 225, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .shape:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 5%;
+      animation: float 15s infinite linear;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 70%;
+      left: 80%;
+      animation: float 20s infinite linear reverse;
+    }
+
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 20%;
+      left: 90%;
+      animation: float 12s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    @media (max-width: 1200px) {
+      .profile-pic {
+        width: 320px;
+        height: 320px;
+      }
+      
+      .profile-glow {
+        width: 360px;
+        height: 360px;
+      }
+      
       header h1 {
-        font-size: 2.5rem;
+        font-size: 3.8rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+      }
+      
+      .profile-pic {
+        width: 280px;
+        height: 280px;
+      }
+      
+      .profile-glow {
+        width: 320px;
+        height: 320px;
+      }
+      
+      header h1 {
+        font-size: 3.2rem;
       }
       
       .about-content {
@@ -289,32 +544,148 @@
       }
       
       .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+      
+      .title {
+        font-size: 1.5rem;
+      }
+      
+      .profile-pic {
+        width: 240px;
+        height: 240px;
+      }
+      
+      .profile-glow {
+        width: 280px;
+        height: 280px;
+      }
+
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
-      .profile-pic {
-        width: 120px;
-        height: 120px;
+      .header-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .header-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
       }
 
-      .certification-img, .hackathon-img {
-        max-width: 150px;
+      .hackathon-img, .image-placeholder {
+        max-width: 160px;
+        height: 120px;
       }
     }
 
     @media (max-width: 480px) {
-      .certification-img, .hackathon-img {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .profile-glow {
+        width: 240px;
+        height: 240px;
+      }
+
+      .hackathon-img, .image-placeholder {
         max-width: 100%;
+        height: 180px;
+      }
+      
+      .contact-icons a {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
       }
     }
+    .hackathon-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hackathon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(0, 225, 255, 0.1);
+  color: var(--primary);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 1px solid rgba(0, 225, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+.hackathon-link:hover {
+  background: rgba(0, 225, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 225, 255, 0.2);
+}
+
+.hackathon-link i {
+  font-size: 1.1rem;
+}
+
+/* Responsive design for hackathon links */
+@media (max-width: 768px) {
+  .hackathon-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hackathon-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
   </style>
 </head>
 <body>
   <header>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <div class="container">
-      <img src="images/Screenshot 2025-06-17 201518.png" alt="Madhagari Abhishek" class="profile-pic">
-      <h1>Madhagari Abhishek</h1>
-      <p>Cybersecurity Student | Front-end Developer</p>
+      <div class="header-content">
+        <div class="profile-section">
+          <div class="profile-glow"></div>
+          <img src="images/logo.jpg" alt="Madhagari Abhishek" class="profile-pic">
+        </div>
+        <div class="info-section">
+          <h1>Madhagari Abhishek</h1>
+          <div class="title">Cybersecurity Student | Front-end Developer</div>
+          <p>I'm a passionate developer with expertise in front-end technologies and a strong interest in cybersecurity. Currently pursuing my B.Tech in Computer Science with a focus on Cybersecurity at Malla Reddy University.</p>
+          <div class="header-buttons">
+            <a href="#contact" class="btn">Get In Touch</a>
+            <a href="#projects" class="btn btn-outline">View Projects</a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -324,20 +695,23 @@
       <div class="about-content">
         <div>
           <p>I'm a Front-End Developer and a B.Tech student at Malla Reddy University, specializing in Computer Science with a focus on Cybersecurity. I'm passionate about building responsive, user-friendly interfaces that combine design with functionality.</p>
+          <p>With a strong foundation in both development and security principles, I strive to create applications that are not only visually appealing but also secure and efficient.</p>
           <a href="#contact" class="btn">Get In Touch</a>
         </div>
         <div>
+          <h3>Skills & Technologies</h3>
           <div class="skills">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
             <span class="skill">JavaScript</span>
-            <span class="skill">MySQL</span>
             <span class="skill">React</span>
             <span class="skill">Python</span>
-            <span class="skill">Leadership</span>
-            <span class="skill">AI/ML</span>
-            <span class="skill">Docker</span>
+            <span class="skill">MySQL</span>
             <span class="skill">Git</span>
+            <span class="skill">AI/ML</span>
+            <span class="skill">Leadership</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Team Collaboration</span>
           </div>
         </div>
       </div>
@@ -379,40 +753,50 @@
   </section>
 
   <section id="hackathons">
-    <div class="container">
-      <h2>Workshops & Hackathons</h2>
-      <div class="hackathon-item">
-        <h3>Ethical Hacking Workshop <span>IIT Hyderabad</span></h3>
-        <p>Participated in an intensive workshop covering ethical hacking techniques, penetration testing methodologies, and cybersecurity best practices.</p>
-        <div class="hackathon-images">
-          <img src="images/1000264951.jpg" alt="Ethical Hacking Workshop at IIT Hyderabad" class="hackathon-img">
-        </div>
-      </div>
-     
-      <div class="hackathon-item">
-        <h3>Great AppSec Hackathon <span>DSCI</span></h3>
-        <p>Participated in a national-level application security hackathon focused on identifying and resolving security vulnerabilities in web applications.</p>
-        <div class="hackathon-images">
-          <img src="images/1000264954.jpg" alt="Great AppSec Hackathon" class="hackathon-img">
-        </div>
-      </div>
-      <div class="hackathon-item">
-        <h3>Flipkart GRID Hackathon <span>Flipkart</span></h3>
-        <p>Competed in Flipkart's annual hackathon, working on innovative solutions for e-commerce challenges with a focus on security and scalability.</p>
-        <div class="hackathon-images">
-          <img src="images/1000264953.jpg" alt="Flipkart GRID Hackathon" class="hackathon-img">
-        </div>
+  <div class="container">
+    <h2>Workshops & Hackathons</h2>
+    
+    <div class="hackathon-item">
+      <h3>Ethical Hacking Workshop <span>IIT Hyderabad</span></h3>
+      <p>Participated in an intensive workshop covering ethical hacking techniques, penetration testing methodologies, and cybersecurity best practices.</p>
+      <div class="hackathon-links">
+        <a href="images/1000264951.jpg" class="hackathon-link" target="_blank">
+          <i class="fas fa-certificate"></i>
+          View Workshop Certificate
+        </a>
       </div>
     </div>
-  </section>
-
+    
+    <div class="hackathon-item">
+      <h3>Great AppSec Hackathon <span>DSCI</span></h3>
+      <p>Participated in a national-level application security hackathon focused on identifying and resolving security vulnerabilities in web applications.</p>
+      <div class="hackathon-links">
+        <a href="images/1000264954.jpg" class="hackathon-link" target="_blank">
+          <i class="fas fa-trophy"></i>
+          View Participation Certificate
+        </a>
+      </div>
+    </div>
+    
+    <div class="hackathon-item">
+      <h3>Flipkart GRID Hackathon <span>Flipkart</span></h3>
+      <p>Competed in Flipkart's annual hackathon, working on innovative solutions for e-commerce challenges with a focus on security and scalability.</p>
+      <div class="hackathon-links">
+        <a href="images/1000264953.jpg" class="hackathon-link" target="_blank">
+          <i class="fas fa-users"></i>
+          View Team Photo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
   <section id="projects">
     <div class="container">
       <h2>Featured Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-image">
-            <i class="fas fa-shield-alt" style="font-size: 3rem;"></i>
+            <i class="fas fa-shield-alt"></i>
           </div>
           
           <div class="project-content">
@@ -429,7 +813,7 @@
         </div>
         <div class="project-card">
           <div class="project-image">
-            <i class="fas fa-utensils" style="font-size: 3rem;"></i>
+            <i class="fas fa-utensils"></i>
           </div>
           <div class="project-content">
             <h3>Restaurant Management System</h3>
@@ -443,7 +827,7 @@
         </div>
         <div class="project-card">
           <div class="project-image">
-            <i class="fas fa-graduation-cap" style="font-size: 3rem;"></i>
+            <i class="fas fa-graduation-cap"></i>
           </div>
           <div class="project-content">
             <h3>Trackademic</h3>
@@ -464,60 +848,68 @@
     <div class="container">
       <h2>Certifications</h2>
       <div class="certification-item">
-        <h3>IT, Computer Fundamentals, MS Office, Internet <span>Govt of Telangana</span></h3>
-        <p>Certified training on basic computer operations, MS Office tools, and internet usage.</p>
-        <div class="certification-images">
-          <img src="images/1000264930.jpg" alt="Govt of Telangana Certification" class="certification-img">
-        </div>
-      </div>
-      <div class="certification-item">
-        <h3>Young Professionals <span>TCS iON</span></h3>
-        <p>Certified training in soft skills, including communication, non-verbal cues, workplace etiquette, and professional behavior.</p>
-        <div class="certification-images">
-          <img src="images/1000264933.jpg" alt="TCS iON Certification" class="certification-img">
-        </div>
-      </div>
-      <div class="certification-item">
         <h3>Python Essentials 1 & 2 <span>Cisco Networking Academy</span></h3>
         <p>Comprehensive certification in Python, covering syntax, functions, OOP, and data structures.</p>
-        <div class="certification-images">
-          <img src="images/1000264939.jpg" alt="Cisco Python Certification" class="certification-img">
-        </div>
+        <a href="images/1000264939.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
       </div>
       <div class="certification-item">
         <h3>AI Fundamentals <span>IBM</span></h3>
         <p>Foundation-level course on artificial intelligence, machine learning, and their real-world applications.</p>
-        <div class="certification-images">
-          <img src="images/1000264942.jpg" alt="IBM AI Certification" class="certification-img">
-        </div>
+        <a href="images/1000264942.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
       </div>
       <div class="certification-item">
         <h3>Web Development Fundamentals <span>IBM</span></h3>
         <p>Training in front-end and back-end web development using modern frameworks and best practices.</p>
-        <div class="certification-images">
-          <img src="images/1000264945.jpg" alt="IBM Web Dev Certification" class="certification-img">
-        </div>
-      </div>
-      <div class="certification-item">
-        <h3>HR Analytics <span>University of California</span></h3>
-        <p>Understanding data-driven decision-making in human resources using analytics tools and techniques.</p>
-        <div class="certification-images">
-          <img src="images/1000264950.jpg" alt="UC HR Analytics Certification" class="certification-img">
-        </div>
+        <a href="images/1000264945.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
       </div>
       <div class="certification-item">
         <h3>Project Management Fundamentals <span>IBM</span></h3>
         <p>Introduction to key project management principles, lifecycle, and effective project planning strategies.</p>
-        <div class="certification-images">
-          <img src="images/1000264936.jpg" alt="IBM PM Certification" class="certification-img">
-        </div>
+        <a href="images/1000264936.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
       </div>
       <div class="certification-item">
         <h3>Effective Leadership <span>HP Life</span></h3>
         <p>Skills and strategies to lead teams, communicate vision, and manage responsibilities effectively.</p>
-        <div class="certification-images">
-          <img src="images/1000264947.jpg" alt="HP Leadership Certification" class="certification-img">
-        </div>
+        <a href="images/1000264947.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
+      </div>
+      <div class="certification-item">
+        <h3>IT, Computer Fundamentals, MS Office, Internet <span>Govt of Telangana</span></h3>
+        <p>Certified training on basic computer operations, MS Office tools, and internet usage.</p>
+        <a href="images/1000264930.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
+      </div>
+      <div class="certification-item">
+        <h3>Young Professionals <span>TCS iON</span></h3>
+        <p>Certified training in soft skills, including communication, non-verbal cues, workplace etiquette, and professional behavior.</p>
+        <a href="images/1000264933.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
+      </div>
+      <div class="certification-item">
+        <h3>HR Analytics <span>University of California</span></h3>
+        <p>Understanding data-driven decision-making in human resources using analytics tools and techniques.</p>
+        <a href="images/1000264950.jpg" class="certification-link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+          View Certification
+        </a>
       </div>
     </div>
   </section>
@@ -526,7 +918,14 @@
     <div class="container">
       <div class="contact-content">
         <h2>Get In Touch</h2>
-        <p>I'm currently looking for internship opportunities in cybersecurity and software development. If you have any questions or just want to say hi, feel free to reach out!</p>
+        <br>Hello there!</br>
+I truly appreciate you taking the time to visit my profile. I’m currently exploring exciting internship and job opportunities where I can contribute, learn, and grow.
+
+If you’ve gone through my projects and certifications and feel that I could be a good fit for your team or organization, I’d be delighted to connect.
+
+I always enjoy meaningful conversations and new opportunities to collaborate with people who share a passion for learning and growth.
+
+Feel free to reach out or drop me an email below — I’d love to hear from you! 😊</p>
         <div class="contact-icons">
           <a href="mailto:ahishekmadhagari1407@gmail.com" aria-label="Email">
             <i class="fas fa-envelope"></i>
